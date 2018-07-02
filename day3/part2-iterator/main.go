@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./BLC"
+	"blockChain/HomeWork/day3/part2-iterator/BLC"
 )
 
 func main() {
@@ -15,5 +15,4 @@ func main() {
 	blockChain.AddBlockToBlockChain("zhangmengbiaa", )
 
 	blockChain.PrintChain()
-
 }
