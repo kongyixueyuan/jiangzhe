@@ -1,11 +1,12 @@
 package main
 
 import (
-	"blockChain/HomeWork/day4/BLC"
+	"./BLC"
 )
 
 func main() {
 	cli := BLC.CLI{}
-
 	cli.Run()
+	//BLC.NewCoinbaseTransaction("test")
+
 }

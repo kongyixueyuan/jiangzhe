@@ -1,41 +1,24 @@
 package BLC
 
 import (
-	"encoding/binary"
-	"encoding/json"
-	"log"
 	"bytes"
-	"os"
+	"encoding/binary"
+	"log"
+	"encoding/json"
 )
 
-//用于判断数据库是否存在的方法
-func DBExists() bool {
-	if _, err := os.Stat(dbName); os.IsNotExist(err) {
-		return false
-	}
-
-	return true
-}
-
-
-//此方法用于返回BlockChain的对象
-func BlockChainObj() *BlockChain {
-
-}
-
-
-// 将int64转换为字节数组
+//int64 转成[]byte
 func IntToHex(num int64) []byte {
 	buff := new(bytes.Buffer)
 	err := binary.Write(buff, binary.BigEndian, num)
-	if err != nil {
-		log.Fatal(err)
+	if (err != nil) {
+		log.Panic(err)
 	}
-
 	return buff.Bytes()
+
 }
 
-// 标准的JSON字符串转数组
+// 标准的jsonString转成数组
 func JSONToArray(jsonString string) []string {
 
 	//json 到 []string

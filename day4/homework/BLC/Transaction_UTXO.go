@@ -5,3 +5,5 @@ type UTXO struct {
 	Index	int
 	Output 	*TXOutput
 }
+
+

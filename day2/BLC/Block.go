@@ -9,7 +9,6 @@ import (
 
 
 //区块的结构体
-
 type Block struct {
 	Height    int64
 	Data      []byte
