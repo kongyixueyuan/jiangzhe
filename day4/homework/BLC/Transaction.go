@@ -8,22 +8,16 @@ import (
 	"encoding/hex"
 )
 
-// UTXO
+// UTXO模型
 type Transaction struct {
-	// 交易hash
-	TxHash []byte
-
-	// 输入
-	Vins []*TXInput
-
-	// 输出
-	Vouts []*TXOutput
+	TxHash []byte	// 交易hash
+	Vins []*TXInput	// 输入
+	Vouts []*TXOutput	// 输出
 }
 
 // 判断当前的交易是否是Coinbase交易
 func (tx *Transaction) IsCoinbaseTransaction() bool {
 	return len(tx.TxHash) == 0 && tx.Vins[0].Vout == -1
-
 }
 //Coinbase账号
 // 创世区块创建时的Transaction

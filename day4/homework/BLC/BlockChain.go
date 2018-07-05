@@ -11,24 +11,23 @@ import (
 	"time"
 )
 
-// 数据库名字
+// 数据库名
 const dbName = "blockchain.db"
+// 表名
 const blockTableName = "blocks"
 
+// 用于构造区块链的结构体
 type Blockchain struct {
 	Tip []byte //最新的区块hash
 	DB  *bolt.DB
 }
 
 
-// 遍历输出所有区块的信息
+// 通过迭代器遍历输出所有的区块信息
 func (blc *Blockchain) Printchain() {
-
 	blockchainIterator := blc.Iterator()
-
 	for {
 		block := blockchainIterator.Next()
-
 		fmt.Printf("Height: %d\n", block.Height)
 		fmt.Printf("PreBlockHash: %x\n", block.PrevBlockHash)
 		fmt.Printf("Timestamp: %s\n", time.Unix(block.Timestamp, 0).Format("2006-01-02 03:04:05 PM"))
@@ -62,10 +61,12 @@ func (blc *Blockchain) Printchain() {
 
 // 判断数据库是否存在
 func DBExists() bool {
+	/*
+		os.Stat 查看文件信息
+	 */
 	if _, err := os.Stat(dbName); os.IsNotExist(err) {
 		return false
 	}
-
 	return true
 }
 // 增加区块到区块链里面
@@ -74,15 +75,16 @@ func (blc *Blockchain) AddBlockToBlockchain(txs []*Transaction) {
 	err := blc.DB.Update(func(tx *bolt.Tx) error {
 		// 1. 获取表
 		b := tx.Bucket([]byte(blockTableName))
-
 		// 2. 创建新区块
 		if b != nil {
-			// 从数据库中取到上一个区块的信息（获取最新区块）
+			// 从数据库中获取最新区块
 			blockBytes := b.Get(blc.Tip)
 			// 反序列化
 			block := DeserializeBlock(blockBytes)
-			// 3. 将区块序列化，存储到数据库中
+
+			// 3. 将区块序列化，存储到数据库中（设置新增区块的高度和上一个区块的哈希）
 			newBlock := NewBlock(txs, block.Height+1, block.Hash)
+
 			// 保存生成新的区块到数据库中
 			err := b.Put(newBlock.Hash, newBlock.Serialize())
 			if err != nil {
@@ -374,6 +376,16 @@ func (blockchain *Blockchain) FindSpendableUTXOS(from string, amount int, txs []
 	return value, spendableUTXO
 }
 
+// 查询余额
+func (blockchain *Blockchain) GetBalance(address string) int64 {
+	utxos := blockchain.UnUTXOs(address, []*Transaction{})
+	var amount int64
+	for _, out := range utxos {
+		amount = amount + out.Output.Value
+	}
+	return amount
+}
+
 // 挖掘新的区块
 func (blockchain *Blockchain) MineNewBlock(from []string, to []string, amount []string) {
 	// 通过相关算法建立Transantion数组
@@ -416,12 +428,3 @@ func (blockchain *Blockchain) MineNewBlock(from []string, to []string, amount []
 
 }
 
-// 查询余额
-func (blockchain *Blockchain) GetBalance(address string) int64 {
-	utxos := blockchain.UnUTXOs(address, []*Transaction{})
-	var amount int64
-	for _, out := range utxos {
-		amount = amount + out.Output.Value
-	}
-	return amount
-}

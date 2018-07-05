@@ -10,7 +10,6 @@ import (
 	"crypto/sha256"
 	"encoding/gob"
 	"log"
-	"fmt"
 )
 
 type Block struct {
@@ -32,6 +31,7 @@ type Block struct {
 func (block *Block) HashTransactions() []byte {
 	var txHashes [][]byte
 	var txHash [32]byte
+	//遍历区块中的每一比交易
 	for _, tx := range block.Txs {
 		txHashes = append(txHashes, tx.TxHash)
 	}
@@ -63,18 +63,24 @@ func DeserializeBlock(blockBytes []byte) *Block {
 
 func NewBlock(txs []*Transaction, height int64, prevBlockHash []byte) *Block {
 	//创建区块
-	block := &Block{Height: height,PrevBlockHash: prevBlockHash, Txs: txs, Timestamp: time.Now().Unix(), Hash: nil, Nonce: 0}
-	//调用工作量证明方法并且返回有效的hash和nonce
+	block := &Block{
+		Height: height,
+		PrevBlockHash: prevBlockHash,
+		Txs: txs,
+		Timestamp: time.Now().Unix(),
+		Hash: nil,
+		Nonce: 0,
+	}
+	//创建pow对象
 	pow := NewProofOfWork(block)
-	//挖矿验证
+	//获取hash和nonce
 	hash, nonce := pow.Run()
 	block.Hash = hash[:]
 	block.Nonce = nonce
-	fmt.Println()
 	return block
 }
 
-//2 单独写一个方法，生成创世区块
+//生成创世区块
 func CreateGenesisBlock(txs []*Transaction) *Block {
 	return NewBlock(txs, 1, []byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0})
 
