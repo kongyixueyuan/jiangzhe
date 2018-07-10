@@ -11,7 +11,5 @@ type TXInput struct {
 
 // 判断当前的消费是否是该地址
 func (txInput *TXInput) UnLockWithAddress(address string) bool {
-
 	return txInput.ScriptSig == address
-
 }

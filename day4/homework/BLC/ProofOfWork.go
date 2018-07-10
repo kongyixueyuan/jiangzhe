@@ -1,10 +1,10 @@
 package BLC
 
 import (
-	"math/big"
 	"bytes"
 	"crypto/sha256"
 	"fmt"
+	"math/big"
 	"time"
 )
 
@@ -18,7 +18,7 @@ type ProofOfWork struct {
 
 func (proofOfWork *ProofOfWork) IsValid() bool {
 	var hashInt big.Int
-	hashInt.SetBytes(proofOfWork.Block.Hash)
+	hashInt.SetBytes(proofOfWork.Block.JZ_Hash)
 	if proofOfWork.target.Cmp(&hashInt) == 1 {
 		return true
 	}
@@ -28,12 +28,12 @@ func (proofOfWork *ProofOfWork) IsValid() bool {
 //数据拼接，返回字节数组
 func (pow *ProofOfWork) prepareData(nonce int) []byte {
 	data := bytes.Join([][]byte{
-		pow.Block.PrevBlockHash,
+		pow.Block.JZ_PrevBlockHash,
 		pow.Block.HashTransactions(),
-		IntToHex(pow.Block.Timestamp),
+		IntToHex(pow.Block.JZ_Timestamp),
 		IntToHex(int64(targetBit)),
 		IntToHex(int64(nonce)),
-		IntToHex(int64(pow.Block.Height)),
+		IntToHex(int64(pow.Block.JZ_Height)),
 	}, []byte{})
 	return data
 }

@@ -2,44 +2,39 @@ package BLC
 
 import (
 	"bytes"
-	"encoding/gob"
-	"log"
 	"crypto/sha256"
+	"encoding/gob"
 	"encoding/hex"
+	"log"
 )
 
 // UTXO模型
 type Transaction struct {
-	TxHash []byte	// 交易hash
-	Vins []*TXInput	// 输入
-	Vouts []*TXOutput	// 输出
+	TxHash []byte      // 交易hash
+	Vins   []*TXInput  // 输入
+	Vouts  []*TXOutput // 输出
 }
 
 // 判断当前的交易是否是Coinbase交易
 func (tx *Transaction) IsCoinbaseTransaction() bool {
 	return len(tx.TxHash) == 0 && tx.Vins[0].Vout == -1
 }
-//Coinbase账号
-// 创世区块创建时的Transaction
-func NewCoinbaseTransaction(address string) *Transaction {
 
-	// 代表消费
+// Coinbase账号 （区块链中的第一笔交易）
+// 创世区块创建时的Transaction	address其实就是从cli客户端接收的参数
+func JZ_NewCoinbaseTransaction(address string) *Transaction {
+	// 消费记录
 	txInput := &TXInput{[]byte{}, -1, "Genesis Data"}
-
-	// 未花费交易输出
+	// 给Coinbase转账1000个token
 	txOutput := &TXOutput{1000, address}
-
 	txCoinbase := &Transaction{[]byte{}, []*TXInput{txInput}, []*TXOutput{txOutput}}
-
 	// 设置hash值
 	txCoinbase.HashTransaction()
-
 	return txCoinbase
-
 }
 
 // 转账时产生的Transaction
-func NewSimpleTransaction(from string, to string, amount int, blockchain *Blockchain, txs []*Transaction) *Transaction {
+func JZ_NewSimpleTransaction(from string, to string, amount int, blockchain *Blockchain, txs []*Transaction) *Transaction {
 
 	// 记录已花费的output
 	//{hash1:[0],hash2:[2]}
@@ -77,17 +72,12 @@ func NewSimpleTransaction(from string, to string, amount int, blockchain *Blockc
 }
 
 func (tx *Transaction) HashTransaction() {
-
 	var result bytes.Buffer
-
 	encoder := gob.NewEncoder(&result)
-
 	err := encoder.Encode(tx)
 	if err != nil {
 		log.Panic(err)
 	}
-
 	hash := sha256.Sum256(result.Bytes())
-
 	tx.TxHash = hash[:]
 }

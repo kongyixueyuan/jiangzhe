@@ -3,23 +3,22 @@ package BLC
 import (
 	"bytes"
 	"crypto/sha256"
-	"time"
 	"strconv"
+	"time"
 )
-
 
 //区块的结构体
 type Block struct {
-	Height    int64
-	Data      []byte
-	Timestamp int64
-	PrevHash  []byte
-	Hash      []byte
-	Nonce     int64
+	JZ_Height    int64
+	JZ_Data      []byte
+	JZ_Timestamp int64
+	JZ_PrevHash  []byte
+	JZ_Hash      []byte
+	JZ_Nonce     int64
 }
 
 //创建一个新的区块
-func NewBlock(height int64, data []byte, prev []byte) *Block {
+func JZ_NewBlock(height int64, data []byte, prev []byte) *Block {
 	block := &Block{
 		height,
 		data,
@@ -29,22 +28,23 @@ func NewBlock(height int64, data []byte, prev []byte) *Block {
 		0,
 	}
 	/*****生成Hash******/
-	block.Hash = block.SetHash()
+	block.JZ_Hash = block.SetHash()
 
 	/*****POW算法******/
 	//创建pow对象
-	pow := NewPow(block)
-	pow.Run()
+	pow := JZ_NewPow(block)
+	pow.JZ_Run()
 
 	return block
 }
 
-func CreateGenesisBlock(data string) *Block {
+//创建创世区块
+func JZ_CreateGenesisBlock(data string) *Block {
 	height := 1
 	currentData := data
 	prevhash := []byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 
-	block := NewBlock(
+	block := JZ_NewBlock(
 		int64(height),
 		[]byte(currentData),
 		prevhash,
@@ -55,14 +55,14 @@ func CreateGenesisBlock(data string) *Block {
 
 //生成Hash
 func (blc *Block) SetHash() []byte {
-	heightBytes := Int64ToBytes(blc.Height)
-	timeBytes := []byte( strconv.FormatInt(blc.Timestamp, 2) )
+	heightBytes := Int64ToBytes(blc.JZ_Height)
+	timeBytes := []byte(strconv.FormatInt(blc.JZ_Timestamp, 2))
 
 	buff := [][]byte{
 		heightBytes,
-		blc.Data,
+		blc.JZ_Data,
 		timeBytes,
-		blc.PrevHash,
+		blc.JZ_Hash,
 	}
 
 	buffRes := bytes.Join(buff, []byte{})

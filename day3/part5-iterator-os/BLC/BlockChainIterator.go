@@ -5,15 +5,14 @@ import "log"
 
 //迭代器结构体
 type BlockchainIterator struct {
-	CurrentHash	[]byte
-	DB *bolt.DB
+	CurrentHash []byte
+	DB          *bolt.DB
 }
 
 //迭代器
 func (blockchain *BlockChain) Iterator() *BlockchainIterator {
 	return &BlockchainIterator{blockchain.Tip, blockchain.DB}
 }
-
 
 func (blockchainIterator *BlockchainIterator) Next() *Block {
 	var block *Block

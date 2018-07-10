@@ -1,14 +1,13 @@
 package BLC
 
 import (
-	"fmt"
 	"flag"
-	"os"
+	"fmt"
 	"log"
+	"os"
 )
 
 type CLI struct {
-
 }
 
 func isValid() {
@@ -21,8 +20,8 @@ func isValid() {
 func (cli CLI) Run() {
 	isValid()
 	/**
-		1.先写usage
-	 */
+	1.先写usage
+	*/
 	createBlockchain := flag.NewFlagSet("createBlockchain", flag.ExitOnError)
 	flagCreateBlockchainWithAddress := createBlockchain.String("data", "", "创建创世区块链")
 

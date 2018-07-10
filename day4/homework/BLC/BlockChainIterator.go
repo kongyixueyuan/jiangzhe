@@ -7,7 +7,7 @@ import (
 
 type BlockchainIterator struct {
 	CurrentHash []byte
-	DB *bolt.DB
+	DB          *bolt.DB
 }
 
 // 迭代器
@@ -32,7 +32,7 @@ func (blockchainIterator *BlockchainIterator) Next() *Block {
 			block = DeserializeBlock(currentBlockBytes)
 
 			// 更新迭代里面的currentHash
-			blockchainIterator.CurrentHash = block.PrevBlockHash
+			blockchainIterator.CurrentHash = block.JZ_PrevBlockHash
 		}
 
 		return nil

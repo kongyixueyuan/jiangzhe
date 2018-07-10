@@ -1,11 +1,11 @@
 package BLC
 
 import (
+	"fmt"
 	"github.com/boltdb/bolt"
 	"log"
-	"fmt"
-	"time"
 	"math/big"
+	"time"
 )
 
 //数据库名
@@ -15,14 +15,14 @@ const dbName = "blockchain.db"
 const blockTablename = "blocks"
 
 type BlockChain struct {
-	Tip []byte	//最新的区块
-	DB *bolt.DB
+	Tip []byte //最新的区块
+	DB  *bolt.DB
 }
 
 //迭代器结构体
 type BlockchainIterator struct {
-	CurrentHash	[]byte
-	DB *bolt.DB
+	CurrentHash []byte
+	DB          *bolt.DB
 }
 
 //迭代器
@@ -57,11 +57,11 @@ func (blockchainIterator *BlockchainIterator) Next() *Block {
 }
 
 //遍历输出所有区块的信息
-func (blc *BlockChain)PrintChain() {
+func (blc *BlockChain) PrintChain() {
 	//创建迭代器
 	blockIterator := blc.Iterator()
 
-	for  {
+	for {
 		//遍历所有区块
 		block := blockIterator.Next()
 		//输出
@@ -82,7 +82,7 @@ func (blc *BlockChain)PrintChain() {
 //增加区块到区块链里面
 func (blc *BlockChain) AddBlockToBlockChain(data string) *BlockChain {
 
-	err := blc.DB.Update( func(tx *bolt.Tx) error {
+	err := blc.DB.Update(func(tx *bolt.Tx) error {
 		//1.获取表
 		b := tx.Bucket([]byte(blockTablename))
 		//2. 创建新区块
@@ -108,8 +108,7 @@ func (blc *BlockChain) AddBlockToBlockChain(data string) *BlockChain {
 			blc.Tip = newBlock.Hash
 		}
 		return nil
-	} )
-
+	})
 
 	if err != nil {
 		log.Panic(err)
@@ -125,7 +124,7 @@ func CreateGenesisBlockWithChain(data string) *BlockChain {
 		log.Fatal(err)
 	}
 
-	var blockHash []byte	//用于存储最新区块的哈希
+	var blockHash []byte //用于存储最新区块的哈希
 
 	//对数据库进行读写操作
 	err = db.Update(func(tx *bolt.Tx) error {
@@ -137,7 +136,7 @@ func CreateGenesisBlockWithChain(data string) *BlockChain {
 			if err != nil {
 				log.Panic(err)
 			}
-		}else{
+		} else {
 			//创建创世区块的时候将区块存入数据库
 			genesisBlock := CreateGenesisBlock(data)
 
@@ -154,8 +153,6 @@ func CreateGenesisBlockWithChain(data string) *BlockChain {
 			}
 
 			blockHash = genesisBlock.Hash
-
-
 
 		}
 

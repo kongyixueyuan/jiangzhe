@@ -1,18 +1,19 @@
 package BLC
 
 import (
+	"encoding/hex"
+	"fmt"
 	"github.com/boltdb/bolt"
 	"log"
-	"fmt"
-	"os"
-	"encoding/hex"
 	"math/big"
+	"os"
 	"strconv"
 	"time"
 )
 
 // 数据库名
 const dbName = "blockchain.db"
+
 // 表名
 const blockTableName = "blocks"
 
@@ -22,19 +23,18 @@ type Blockchain struct {
 	DB  *bolt.DB
 }
 
-
 // 通过迭代器遍历输出所有的区块信息
 func (blc *Blockchain) Printchain() {
 	blockchainIterator := blc.Iterator()
 	for {
 		block := blockchainIterator.Next()
-		fmt.Printf("Height: %d\n", block.Height)
-		fmt.Printf("PreBlockHash: %x\n", block.PrevBlockHash)
-		fmt.Printf("Timestamp: %s\n", time.Unix(block.Timestamp, 0).Format("2006-01-02 03:04:05 PM"))
-		fmt.Printf("Hash: %x\n", block.Hash)
-		fmt.Printf("Nonce: %d\n", block.Nonce)
+		fmt.Printf("Height: %d\n", block.JZ_Height)
+		fmt.Printf("PreBlockHash: %x\n", block.JZ_PrevBlockHash)
+		fmt.Printf("Timestamp: %s\n", time.Unix(block.JZ_Timestamp, 0).Format("2006-01-02 03:04:05 PM"))
+		fmt.Printf("Hash: %x\n", block.JZ_Hash)
+		fmt.Printf("Nonce: %d\n", block.JZ_Nonce)
 		fmt.Println("Transaction:")
-		for _, tx := range block.Txs {
+		for _, tx := range block.JZ_Txs {
 			fmt.Printf("TxHash:%x\n", tx.TxHash)
 			fmt.Println("Vins:")
 			for _, in := range tx.Vins {
@@ -50,7 +50,7 @@ func (blc *Blockchain) Printchain() {
 		}
 
 		var hashInt big.Int
-		hashInt.SetBytes(block.PrevBlockHash)
+		hashInt.SetBytes(block.JZ_PrevBlockHash)
 
 		if big.NewInt(0).Cmp(&hashInt) == 0 {
 			break
@@ -60,15 +60,16 @@ func (blc *Blockchain) Printchain() {
 }
 
 // 判断数据库是否存在
-func DBExists() bool {
+func JZ_DBExists() bool {
 	/*
 		os.Stat 查看文件信息
-	 */
+	*/
 	if _, err := os.Stat(dbName); os.IsNotExist(err) {
 		return false
 	}
 	return true
 }
+
 // 增加区块到区块链里面
 func (blc *Blockchain) AddBlockToBlockchain(txs []*Transaction) {
 
@@ -83,20 +84,20 @@ func (blc *Blockchain) AddBlockToBlockchain(txs []*Transaction) {
 			block := DeserializeBlock(blockBytes)
 
 			// 3. 将区块序列化，存储到数据库中（设置新增区块的高度和上一个区块的哈希）
-			newBlock := NewBlock(txs, block.Height+1, block.Hash)
+			newBlock := JZ_NewBlock(txs, block.JZ_Height+1, block.JZ_Hash)
 
 			// 保存生成新的区块到数据库中
-			err := b.Put(newBlock.Hash, newBlock.Serialize())
+			err := b.Put(newBlock.JZ_Hash, newBlock.Serialize())
 			if err != nil {
 				log.Panic(err)
 			}
 			// 4. 更新数据库里面 "H" 对应的hash
-			err = b.Put([]byte("H"), newBlock.Hash)
+			err = b.Put([]byte("H"), newBlock.JZ_Hash)
 			if err != nil {
 				log.Panic(err)
 			}
 			// 5. 更新blockchain的Tip
-			blc.Tip = newBlock.Hash
+			blc.Tip = newBlock.JZ_Hash
 		}
 		return nil
 	})
@@ -106,14 +107,14 @@ func (blc *Blockchain) AddBlockToBlockchain(txs []*Transaction) {
 	}
 
 }
+
 // 创建带有创世区块的区块链
-func CreateBlockchainWithGenenisBlock(data string) *Blockchain {
+func JZ_CreateBlockchainWithGenenisBlock(address string) *Blockchain {
 
-	if DBExists() {
-
+	//判断数据库是否存在
+	if JZ_DBExists() {
 		fmt.Println("创世区块已经存在")
 		os.Exit(1)
-
 	}
 
 	fmt.Println("正在创建创世区块")
@@ -124,13 +125,12 @@ func CreateBlockchainWithGenenisBlock(data string) *Blockchain {
 		log.Panic(err)
 	}
 
-	var genesisHash []byte
+	var jz_genesisHash []byte
 
 	// 更新数据库
 	err = db.Update(func(tx *bolt.Tx) error {
-
+		//创建表
 		b, err := tx.CreateBucket([]byte(blockTableName))
-
 		if err != nil {
 			log.Panic(err)
 		}
@@ -138,24 +138,24 @@ func CreateBlockchainWithGenenisBlock(data string) *Blockchain {
 		if b != nil {
 			// 创建创世区块
 			// 创建了一个coinbase Transaction
-			txCoinbase := NewCoinbaseTransaction(data)
-			genesisBlock := CreateGenesisBlock([]*Transaction{txCoinbase})
+			txCoinbase := JZ_NewCoinbaseTransaction(address)
+			genesisBlock := JZ_CreateGenesisBlock([]*Transaction{txCoinbase})
 
 			// 将创世区块存储到表中
-			err := b.Put(genesisBlock.Hash, genesisBlock.Serialize())
+			err := b.Put(genesisBlock.JZ_Hash, genesisBlock.Serialize())
 
 			if err != nil {
 				log.Panic(err)
 			}
 
 			// 存储最新的区块的Hash
-			err = b.Put([]byte("H"), genesisBlock.Hash)
+			err = b.Put([]byte("H"), genesisBlock.JZ_Hash)
 
 			if err != nil {
 				log.Panic(err)
 			}
 
-			genesisHash = genesisBlock.Hash
+			jz_genesisHash = genesisBlock.JZ_Hash
 
 		}
 
@@ -166,12 +166,12 @@ func CreateBlockchainWithGenenisBlock(data string) *Blockchain {
 		log.Panic(err)
 	}
 
-	return &Blockchain{genesisHash, db}
+	return &Blockchain{jz_genesisHash, db}
 
 }
 
 // 返回Blockchain对象
-func BlockchainObject() *Blockchain {
+func JZ_BlockchainObject() *Blockchain {
 
 	// 创建或者打开数据库
 	db, err := bolt.Open(dbName, 0600, nil)
@@ -271,9 +271,9 @@ func (blockchain *Blockchain) UnUTXOs(address string, txs []*Transaction) []*UTX
 		block := blockIterator.Next()
 		fmt.Println(block)
 		fmt.Println()
-		for i := len(block.Txs) - 1; i >= 0; i-- {
+		for i := len(block.JZ_Txs) - 1; i >= 0; i-- {
 
-			tx := block.Txs[i]
+			tx := block.JZ_Txs[i]
 			// txHash
 
 			// Vins
@@ -332,7 +332,7 @@ func (blockchain *Blockchain) UnUTXOs(address string, txs []*Transaction) []*UTX
 		}
 		fmt.Println(spentTXOutputs)
 		var hashInt big.Int
-		hashInt.SetBytes(block.PrevBlockHash)
+		hashInt.SetBytes(block.JZ_PrevBlockHash)
 
 		if hashInt.Cmp(big.NewInt(0)) == 0 {
 			break
@@ -392,7 +392,7 @@ func (blockchain *Blockchain) MineNewBlock(from []string, to []string, amount []
 	var txs []*Transaction
 	for index, address := range from {
 		value, _ := strconv.Atoi(amount[index])
-		tx := NewSimpleTransaction(address, to[index], value, blockchain, txs)
+		tx := JZ_NewSimpleTransaction(address, to[index], value, blockchain, txs)
 		txs = append(txs, tx)
 	}
 
@@ -409,7 +409,7 @@ func (blockchain *Blockchain) MineNewBlock(from []string, to []string, amount []
 	})
 
 	// 建立新的区块
-	block = NewBlock(txs, block.Height+1, block.Hash)
+	block = JZ_NewBlock(txs, block.JZ_Height+1, block.JZ_Hash)
 
 	// 将新区块存储到数据库
 	blockchain.DB.Update(func(tx *bolt.Tx) error {
@@ -418,13 +418,12 @@ func (blockchain *Blockchain) MineNewBlock(from []string, to []string, amount []
 
 		if b != nil {
 
-			b.Put(block.Hash, block.Serialize())
-			b.Put([]byte("H"), block.Hash)
-			blockchain.Tip = block.Hash
+			b.Put(block.JZ_Hash, block.Serialize())
+			b.Put([]byte("H"), block.JZ_Hash)
+			blockchain.Tip = block.JZ_Hash
 		}
 		return nil
 
 	})
 
 }
-

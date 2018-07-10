@@ -6,5 +6,7 @@ import (
 
 func main() {
 	cli := BLC.CLI{}
-	cli.Run()
+
+	//CLI命令行
+	cli.JZ_Run()
 }

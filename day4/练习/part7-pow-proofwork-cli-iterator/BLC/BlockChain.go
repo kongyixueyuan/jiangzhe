@@ -18,4 +18,3 @@ func (blc *BlockChain) AddBlockToBlockChain(height int64, data string, prevhash 
 }
 
 //输出打印区块信息
-

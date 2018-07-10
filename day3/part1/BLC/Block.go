@@ -3,12 +3,11 @@ package BLC
 import (
 	"bytes"
 	"crypto/sha256"
-	"time"
-	"strconv"
 	"encoding/gob"
 	"log"
+	"strconv"
+	"time"
 )
-
 
 //区块的结构体
 
@@ -62,7 +61,7 @@ func CreateGenesisBlock(data string) *Block {
 //生成Hash
 func (blc *Block) SetHash() []byte {
 	heightBytes := Int64ToBytes(blc.Height)
-	timeBytes := []byte( strconv.FormatInt(blc.Timestamp, 2) )
+	timeBytes := []byte(strconv.FormatInt(blc.Timestamp, 2))
 
 	buff := [][]byte{
 		heightBytes,
@@ -91,7 +90,6 @@ func (block *Block) Serialize() []byte {
 
 	return result.Bytes()
 }
-
 
 //反序列化
 func DeserializeBlock(blockBytes []byte) *Block {

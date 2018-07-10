@@ -1,18 +1,15 @@
 package BLC
 
 import (
-	"math/big"
 	"bytes"
+	"math/big"
 )
-
-//base64:ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
-//base58:去掉0(零)，O(大写的 o)，I(大写的i)，l(小写的 L)，+，/
 
 //base58编码集
 var b58Alphabet = []byte("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz")
 
 // 字节数组转 Base58,加密
-func Base58Encode(input []byte) []byte {
+func JZ_Base58Encode(input []byte) []byte {
 
 	var result []byte
 
@@ -28,8 +25,7 @@ func Base58Encode(input []byte) []byte {
 		result = append(result, b58Alphabet[mod.Int64()])
 	}
 
-	//反转
-	ReverseBytes(result)
+	JZ_ReverseBytes(result)
 	for b := range input {
 
 		if b == 0x00 {
@@ -45,7 +41,7 @@ func Base58Encode(input []byte) []byte {
 }
 
 // Base58转字节数组，解密
-func Base58Decode(input []byte) []byte {
+func JZ_Base58Decode(input []byte) []byte {
 
 	result := big.NewInt(0)
 	zeroBytes := 0

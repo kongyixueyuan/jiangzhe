@@ -3,15 +3,15 @@ package BLC
 import (
 	"bytes"
 	"encoding/binary"
-	"log"
 	"encoding/json"
+	"log"
 )
 
 //int64 转成[]byte
 func IntToHex(num int64) []byte {
 	buff := new(bytes.Buffer)
 	err := binary.Write(buff, binary.BigEndian, num)
-	if (err != nil) {
+	if err != nil {
 		log.Panic(err)
 	}
 	return buff.Bytes()

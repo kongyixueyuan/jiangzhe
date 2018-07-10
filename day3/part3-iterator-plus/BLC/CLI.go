@@ -1,14 +1,13 @@
 package BLC
 
 import (
-	"fmt"
-	"os"
 	"flag"
+	"fmt"
 	"log"
+	"os"
 )
 
 type CLI struct {
-
 }
 
 func Create() {
@@ -21,7 +20,7 @@ func (cli CLI) Run() {
 	args := os.Args
 
 	switch args[1] {
-		case "hahaha":
+	case "hahaha":
 		err := fs.Parse(args[2:])
 		if err != nil {
 			log.Panic(err)

@@ -6,7 +6,7 @@ type BlockChain struct {
 
 //创建区块链并自动创建创世区块的方法
 func CreateBlockChainWithBlock() *BlockChain {
-	return &BlockChain{[]*Block{ FirstBlock("GenesisBlock") }}
+	return &BlockChain{[]*Block{FirstBlock("GenesisBlock")}}
 }
 
 //将区块添加进区块链中
