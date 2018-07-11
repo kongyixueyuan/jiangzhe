@@ -1,13 +1,3 @@
-/**
-@author: chaors
-
-@file:   utils.go
-
-@time:   2018/06/21 22:06
-
-@desc:   一些常用的辅助方法
-*/
-
 package BLC
 
 import (
