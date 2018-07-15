@@ -5,7 +5,6 @@ import (
 	"flag"
 	"os"
 	"log"
-	"github.com/blockchain_go_videos-master/part53-wallets/BLC"
 )
 
 type JZ_CLI struct {
@@ -139,16 +138,6 @@ func (cli *JZ_CLI) JZ_Run() {
 		//这里真正地调用转账方法
 		from := JZ_Json2Array(*flagSendBlockFrom)
 		to := JZ_Json2Array(*flagSendBlockTo)
-
-		//输入地址有效性判断
-		for index, fromAddress := range from {
-
-			if BLC.IsValidForAdress([]byte(fromAddress)) == false || BLC.IsValidForAdress([]byte(to[index])) == false {
-
-				fmt.Printf("Address:%s incalid", fromAddress)
-				os.Exit(1)
-			}
-		}
 
 		amount := JZ_Json2Array(*flagSendBlockAmount)
 

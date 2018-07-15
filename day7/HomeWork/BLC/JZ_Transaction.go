@@ -96,6 +96,7 @@ func JZ_NewTransaction(from string, to string, amount int64, utxoSet *JZ_UTXOSet
 	utxoSet.JZ_Blockchain.JZ_SignTransaction(tx, wallet.JZ_PrivateKey, txs)
 
 	return tx
+}
 
 func (tx *JZ_Transaction) JZ_Sign(privateKey ecdsa.PrivateKey, prevTxs map[string]JZ_Transaction) {
 
