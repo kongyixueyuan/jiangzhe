@@ -1,10 +1,10 @@
 package BLC
 
 import (
+	"math/big"
 	"bytes"
 	"crypto/sha256"
 	"fmt"
-	"math/big"
 )
 
 //期望计算的Hash值前面至少要有16个零
@@ -19,6 +19,15 @@ type JZ_ProofOfWork struct {
 
 //创建新的工作量证明对象
 func JZ_NewProofOfWork(block *JZ_Block) *JZ_ProofOfWork {
+
+	/**
+	target计算方式  假设：Hash为8位，targetBit为2位
+	eg:0000 0001(8位的Hash)
+	1.8-2 = 6 将上值左移6位
+	2.0000 0001 << 6 = 0100 0000 = target
+	3.只要计算的Hash满足 ：hash < target，便是符合POW的哈希值
+	*/
+
 	//1.创建一个初始值为1的target
 	target := big.NewInt(1)
 	//2.左移bits(Hash) - targetBit 位
@@ -46,7 +55,7 @@ func (pow *JZ_ProofOfWork) JZ_prepareData(nonce int) []byte {
 }
 
 //判断当前区块是否有效
-func (proofOfWork *JZ_ProofOfWork) IsValid() bool {
+func (proofOfWork *JZ_ProofOfWork) IsValid() bool  {
 
 	//比较当前区块哈希值与目标哈希值
 	var hashInt big.Int
@@ -79,18 +88,16 @@ func (proofOfWork *JZ_ProofOfWork) JZ_Run() ([]byte, int64) {
 	for {
 		//准备数据
 		dataBytes := proofOfWork.JZ_prepareData(nonce)
-
 		//生成Hash
 		hash = sha256.Sum256(dataBytes)
 
 		//\r将当前打印行覆盖
 		fmt.Printf("\r%x", hash)
-
 		//存储Hash到hashInt
 		hashInt.SetBytes(hash[:])
-
 		//验证Hash
 		if proofOfWork.JZ_Target.Cmp(&hashInt) == 1 {
+
 			break
 		}
 		nonce++
@@ -98,3 +105,5 @@ func (proofOfWork *JZ_ProofOfWork) JZ_Run() ([]byte, int64) {
 
 	return hash[:], int64(nonce)
 }
+
+
