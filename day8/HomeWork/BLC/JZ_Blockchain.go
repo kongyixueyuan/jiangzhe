@@ -55,7 +55,7 @@ func JZ_CreateBlockchainWithGensisBlock(address string, nodeID string) *JZ_Block
 				hash := b.Get([]byte(newestBlockKey))
 				blockBytes := b.Get(hash)
 				block = JZ_DeSerializeBlock(blockBytes)
-				fmt.Printf("\r######%d-%x\n", block.JZ_Nonce, hash)
+				fmt.Printf("\r%x\n", block.JZ_Nonce, hash)
 
 				blc = &JZ_Blockchain{hash, db}
 			}

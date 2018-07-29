@@ -80,6 +80,7 @@ func (cli *JZ_CLI) JZ_Run() {
 			log.Panic(err)
 		}
 	case "createBlockchain":
+		fmt.Println(createBlockchainCmd)
 		err := createBlockchainCmd.Parse(os.Args[2:])
 		if err != nil {
 			log.Panic(err)
@@ -150,12 +151,14 @@ func (cli *JZ_CLI) JZ_Run() {
 	}
 	//创建区块链
 	if createBlockchainCmd.Parsed() {
-
+		fmt.Println(*flagBlanceBlockAddress)
 		if *flagCreateBlockchainAddress == "" {
-
+			fmt.Println("-------")
 			printUsage()
 			os.Exit(1)
 		}
+		fmt.Println("++++++++")
+
 
 		cli.JZ_creatBlockchain(*flagCreateBlockchainAddress, nodeID)
 	}
