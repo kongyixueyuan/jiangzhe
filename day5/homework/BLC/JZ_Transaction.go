@@ -143,7 +143,7 @@ func JZ_NewTransaction(from string, to string, amount int64, utxoSet *JZ_UTXOSet
 	*/
 
 	//1. 有一个函数，返回from这个人所有的未花费交易输出所对应的Transaction
-	//unSpentTx := UnSpentTransactionsWithAddress("chaors")
+	//unSpentTx := UnSpentTransactionsWithAddress("jiangzhe")
 	//fmt.Println(unSpentTx)
 
 	//2. 有一个函数，返回消费的钱 和这些钱的来源的交易的哈希 字典形式

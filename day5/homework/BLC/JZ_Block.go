@@ -73,7 +73,7 @@ func JZ_NewBlock(txs []*JZ_Transaction, height int64, prevBlockHash []byte) *JZ_
 	block.JZ_Hash = hash[:]
 	block.JZ_Nonce = nonce
 
-	fmt.Printf("\r######%d-%x\n", nonce, hash)
+	fmt.Printf("\r%x\n", nonce, hash)
 
 	return block
 }

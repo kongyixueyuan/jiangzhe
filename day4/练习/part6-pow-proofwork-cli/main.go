@@ -1,6 +1,6 @@
 package main
 
-import "blockChain/HomeWork/day4/part6-pow-proofwork-cli/BLC"
+import "./BLC"
 
 func main() {
 	//1.通过cli命令去创建创世区块链

@@ -15,8 +15,8 @@ import (
 )
 
 //相关数据库属性
-const dbName = "chaorsBlockchain_%s.db"
-const blockTableName = "chaorsBlocks"
+const dbName = "jiangzheBlockchain_%s.db"
+const blockTableName = "jiangzheBlocks"
 const newestBlockKey = "chNewestBlockKey"
 
 type JZ_Blockchain struct {
@@ -55,7 +55,7 @@ func JZ_CreateBlockchainWithGensisBlock(address string, nodeID string) *JZ_Block
 				hash := b.Get([]byte(newestBlockKey))
 				blockBytes := b.Get(hash)
 				block = JZ_DeSerializeBlock(blockBytes)
-				fmt.Printf("\r######%d-%x\n", block.JZ_Nonce, hash)
+				fmt.Printf("\r%x\n", block.JZ_Nonce, hash)
 
 				blc = &JZ_Blockchain{hash, db}
 			}
@@ -126,7 +126,7 @@ func JZ_CreateBlockchainWithGensisBlock(address string, nodeID string) *JZ_Block
 //2.新增一个区块到区块链 --> 包含交易的挖矿
 func (blc *JZ_Blockchain) JZ_MineNewBlock(from []string, to []string, amount []string, nodeID string) {
 
-	//send -from '["chaors"]' -to '["xyx"]' -amount '["5"]'
+	//send -from '["jiangzhe"]' -to '["xyx"]' -amount '["5"]'
 
 	//获取UTXO集
 	utxoSet := &JZ_UTXOSet{blc}

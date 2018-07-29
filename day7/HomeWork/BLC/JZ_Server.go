@@ -61,6 +61,7 @@ func JZ_handleConnection(conn net.Conn, blc *JZ_Blockchain) {
 
 	fmt.Printf("Receive a Message:%s\n", request[:COMMANDLENGTH])
 
+	// 获取请求命令
 	command := JZ_bytesToCommand(request[:COMMANDLENGTH])
 
 	switch command {

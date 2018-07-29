@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae8d4bc7-c480-47cd-a78a-c55a9cf1bbaf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/day4/练习/part6-pow-proofwork-cli/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/day4/练习/part6-pow-proofwork-cli/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day5/homework/BLC/JZ_Block.go" beforeDir="false" afterPath="$PROJECT_DIR$/day5/homework/BLC/JZ_Block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day5/homework/BLC/JZ_Blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/day5/homework/BLC/JZ_Blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day5/homework/BLC/JZ_Transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/day5/homework/BLC/JZ_Transaction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day5/homework/BLC/JZ_Utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/day5/homework/BLC/JZ_Utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Block.go" beforeDir="false" afterPath="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Transaction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Block.go" beforeDir="false" afterPath="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Block.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Blockchain.go" beforeDir="false" afterPath="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Blockchain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server.go" beforeDir="false" afterPath="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day9.md" beforeDir="false" afterPath="$PROJECT_DIR$/day9.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/otto/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/otto/main.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="day9.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/day9.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="252">
+                <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/otto/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_TXInput.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_TXInput.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_TXOutput.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_TXOutput.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_TXOutputs.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_TXOutputs.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-78" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_UTXOSet.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_UTXOSet.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5867" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_UTXO.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_UTXO.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_Transaction.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Transaction.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5161" />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_Wallet.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Wallet.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="60" column="41" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="41" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JZ_Wallets.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Wallets.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>chaors</find>
+      <find>part53-wallets/</find>
+      <find>pow</find>
+      <find>node env var</find>
+      <find>NODE_ID env var is not set!</find>
+      <find>createBlockchain</find>
+      <find>flagCreateBlockchainAddress</find>
+      <find>address</find>
+      <find>#####</find>
+      <find>######%d-</find>
+      <find>COMMAND_BLOCK</find>
+      <find>JZ_sendInv</find>
+    </findStrings>
+  </component>
+  <component name="GOROOT" path="/usr/local/Cellar/go/1.10.1/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server_Handle.go" />
+        <option value="$PROJECT_DIR$/day8/HomeWork/main.go" />
+        <option value="$PROJECT_DIR$/day4/练习/part6-pow-proofwork-cli/main.go" />
+        <option value="$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Base58.go" />
+        <option value="$PROJECT_DIR$/day8/HomeWork/BLC/JZ_CLI.go" />
+        <option value="$PROJECT_DIR$/day5/homework/BLC/JZ_Blockchain.go" />
+        <option value="$PROJECT_DIR$/day5/homework/BLC/JZ_Block.go" />
+        <option value="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Blockchain.go" />
+        <option value="$PROJECT_DIR$/day6/homeWork/BLC/JZ_Block.go" />
+        <option value="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Block.go" />
+        <option value="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Blockchain.go" />
+        <option value="$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Block.go" />
+        <option value="$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Blockchain.go" />
+        <option value="$PROJECT_DIR$/day2/BLC/Block.go" />
+        <option value="$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server.go" />
+        <option value="$PROJECT_DIR$/day9.md" />
+        <option value="$PROJECT_DIR$/otto/main.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="23" />
+    <option name="width" value="1020" />
+    <option name="height" value="737" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="jiangzhe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiangzhe" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="jiangzhe" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jiangzhe" type="462c0819:PsiDirectoryNode" />
+              <item name="otto" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="jiangzhe" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/otto/main.go" />
+      <package value="底层公链开发作业/jiangzhe" />
+      <directory value="$PROJECT_DIR$/" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1280" height="738" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21728595" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3296875" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32917318" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.36037442" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10062">
+          <caret line="571" column="18" selection-start-line="571" selection-start-column="18" selection-end-line="571" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_MerkleTree.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server_GetData.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server_Handle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5562">
+          <caret line="316" column="5" selection-start-line="316" selection-start-column="5" selection-end-line="316" selection-end-column="5" />
+          <folding>
+            <element signature="e#13#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Wallet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+          <folding>
+            <element signature="e#13#139#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day2/BLC/pow.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="73" column="32" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_MerkleTree.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server_GetData.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Server_Handle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5562">
+          <caret line="316" column="5" selection-start-line="316" selection-start-column="5" selection-end-line="316" selection-end-column="5" />
+          <folding>
+            <element signature="e#13#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day4/练习/part6-pow-proofwork-cli/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_CLI_creatBlockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_CLI.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Base58.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#13#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day6/homeWork/BLC/JZ_Blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="54" column="30" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day6/homeWork/BLC/JZ_Block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="75" column="18" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="76" column="18" selection-start-line="76" selection-start-column="18" selection-end-line="76" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/BLC/JZ_Blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-152">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/day9.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day8/HomeWork/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day2/BLC/Block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day2/BLC/BlockChain.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_MerkleTree.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_BlockData.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_GetData.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_Inv.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_GetBlocks.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Blockchain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="271" column="17" lean-forward="true" selection-start-line="271" selection-start-column="17" selection-end-line="271" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_var.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Constant.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_send.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+          <folding>
+            <element signature="e#13#59#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="75" column="18" lean-forward="true" selection-start-line="75" selection-start-column="18" selection-end-line="75" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day7/HomeWork/BLC/JZ_Server_Handle.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-340">
+          <caret line="101" column="5" selection-start-line="101" selection-start-column="5" selection-end-line="101" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day3/part5-iterator-os/BLC/pow.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="45" column="27" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day4/homework/BLC/Block.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-937" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day4/homework/BLC/BlockChain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="102" column="6" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="102" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Wallets.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Wallet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="60" column="41" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_TXInput.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_Transaction.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5161" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_TXOutput.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_TXOutputs.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_UTXOSet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5867" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day5/homework/BLC/JZ_UTXO.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/otto/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day9.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="252">
+            <caret line="75" column="32" selection-start-line="75" selection-start-column="32" selection-end-line="75" selection-end-column="32" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
